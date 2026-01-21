@@ -18,15 +18,16 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        cache: gradle
 
-    - name: Grant execute permission for gradlew
-      # If gradlew is missing (common in manual uploads), we skip this 
-      # and use the 'gradle' command directly in the next step.
-      run: chmod +x gradlew || true
+    # THIS IS THE FIX: We force GitHub to use Gradle 8.2
+    # instead of the default Gradle 9.2 (which breaks Kotlin)
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v3
+      with:
+        gradle-version: 8.2
 
     - name: Build with Gradle
-      # We use the direct gradle command to be safe
+      # We use the specific gradle version we just installed
       run: gradle assembleDebug --no-daemon
 
     - name: Upload APK
