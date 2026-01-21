@@ -11,13 +11,7 @@ buildscript {
     }
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-        maven { url "https://jitpack.io" }
-    }
-}
+// ERROR WAS HERE: "allprojects" block removed because settings.gradle handles it now.
 
 task clean(type: Delete) {
     delete rootProject.buildDir
