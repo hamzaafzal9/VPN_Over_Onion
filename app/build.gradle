@@ -31,11 +31,9 @@ android {
 }
 
 dependencies {
-    // 1. THE FIX: Use Jehy's library (It includes Tor binaries inside it)
-    // This replaces both 'tor-android' and the old 'Thali' library
-    implementation 'com.github.jehy:Tor-Onion-Proxy-Library:0.0.8'
-    
-    // 2. Tor Controller
+    // 1. The Official Tor Binary (Works!)
+    implementation 'info.guardianproject:tor-android:0.4.8.7'
+    // 2. The Controller
     implementation 'info.guardianproject:jtorctl:0.4.5.7'
 
     // 3. Android Core
