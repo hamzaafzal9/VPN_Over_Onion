@@ -10,7 +10,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url "https://jitpack.io" } 
+        // 1. JitPack (For the libraries)
+        maven { url "https://jitpack.io" }
+        // 2. Guardian Project (CRITICAL: This is where Tor lives)
+        maven { url "https://guardianproject.info/repo/" }
     }
 }
 rootProject.name = "VPN_Over_Onion"
