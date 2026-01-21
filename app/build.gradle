@@ -31,19 +31,16 @@ android {
 }
 
 dependencies {
-    // 1. Tor Binaries (Guardian Project)
-    implementation 'info.guardianproject:tor-android:0.4.8.7'
+    // 1. THE FIX: Use Jehy's library (It includes Tor binaries inside it)
+    // This replaces both 'tor-android' and the old 'Thali' library
+    implementation 'com.github.jehy:Tor-Onion-Proxy-Library:0.0.8'
+    
+    // 2. Tor Controller
     implementation 'info.guardianproject:jtorctl:0.4.5.7'
 
-    // 2. THE FIX: The missing library for TorManager
-    // This allows your TorManager.kt to find 'AndroidOnionProxyManager'
-    implementation 'com.github.thaliproject:Tor_Onion_Proxy_Library:0.0.3'
-
-    // 3. Android Core Libraries
+    // 3. Android Core
     implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.11.0'
-    
-    // 4. THE FIX: Updated version to support File Picker
     implementation 'androidx.activity:activity-ktx:1.8.0' 
 }
