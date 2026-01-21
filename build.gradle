@@ -1,16 +1,24 @@
-dependencies {
-    // Tor Binaries
-    implementation 'info.guardianproject:tor-android:0.4.8.7'
-    implementation 'info.guardianproject:jtorctl:0.4.5.7'
-    
-    // THIS IS THE MISSING LIBRARY FOR TorManager.kt
-    implementation 'com.github.thaliproject:Tor_Onion_Proxy_Library:0.0.3'
+// Top-level build file
+buildscript {
+    ext.kotlin_version = "1.9.0"
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.2.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
 
-    // Android Core
-    implementation 'androidx.core:core-ktx:1.12.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.11.0'
-    
-    // UPDATE THIS VERSION FROM 1.1.0 TO 1.8.0
-    implementation 'androidx.activity:activity-ktx:1.8.0' 
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
