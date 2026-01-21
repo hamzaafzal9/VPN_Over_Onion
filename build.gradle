@@ -1,0 +1,16 @@
+dependencies {
+    // Tor Binaries
+    implementation 'info.guardianproject:tor-android:0.4.8.7'
+    implementation 'info.guardianproject:jtorctl:0.4.5.7'
+    
+    // THIS IS THE MISSING LIBRARY FOR TorManager.kt
+    implementation 'com.github.thaliproject:Tor_Onion_Proxy_Library:0.0.3'
+
+    // Android Core
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+    
+    // UPDATE THIS VERSION FROM 1.1.0 TO 1.8.0
+    implementation 'androidx.activity:activity-ktx:1.8.0' 
+}

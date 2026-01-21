@@ -1,0 +1,49 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    namespace 'com.vpn.app'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.vpn.app"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    // 1. Tor Binaries (Guardian Project)
+    implementation 'info.guardianproject:tor-android:0.4.8.7'
+    implementation 'info.guardianproject:jtorctl:0.4.5.7'
+
+    // 2. THE FIX: The missing library for TorManager
+    // This allows your TorManager.kt to find 'AndroidOnionProxyManager'
+    implementation 'com.github.thaliproject:Tor_Onion_Proxy_Library:0.0.3'
+
+    // 3. Android Core Libraries
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+    
+    // 4. THE FIX: Updated version to support File Picker
+    implementation 'androidx.activity:activity-ktx:1.8.0' 
+}
